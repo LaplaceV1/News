@@ -3,303 +3,273 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AllDownloader — Lana Premium (Dark)</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>LN Tools — Premium Downloader</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#07070a;
-    --panel:#0f1115;
-    --muted:#98a0ab;
-    --accent:#ff6bcb;
-    --accent2:#ffb86b;
-    --glass:rgba(255,255,255,0.02);
-    --card-border: rgba(255,255,255,0.04);
-    --success:#4ade80;
+    --bg1:#050507;
+    --bg2:#0b0c10;
+    --card:#0f1316;
+    --muted: rgba(255,255,255,0.62);
+    --gold:#D4A94E;
+    --accent:#f7dba0;
+    --border: rgba(255,255,255,0.05);
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue";background:linear-gradient(180deg,#040405,var(--bg));color:#e9eef5}
-  .wrap{max-width:1000px;margin:28px auto;padding:22px}
+  html,body{
+    margin:0;padding:0;font-family:Poppins,Inter;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#eaeef2;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:40px auto;padding:20px}
   header{display:flex;align-items:center;gap:16px}
   .logo{
-    width:64px;height:64px;border-radius:12px;
-    background:linear-gradient(135deg,var(--accent2),var(--accent));
+    width:70px;height:70px;border-radius:16px;
+    background:linear-gradient(135deg,var(--gold),var(--accent));
     display:flex;align-items:center;justify-content:center;
-    color:#0b0610;font-weight:800;font-size:20px;box-shadow:0 10px 40px rgba(255,107,203,0.12);
+    font-weight:800;font-size:26px;color:#111;
+    box-shadow:0 12px 40px rgba(212,169,78,0.25);
   }
-  h1{margin:0;font-size:20px}
-  .lead{color:var(--muted);margin-top:4px;font-size:13px}
-  .grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:18px}
-  .panel{background:var(--panel);border-radius:12px;padding:16px;border:1px solid var(--card-border);box-shadow:0 8px 40px rgba(2,6,15,0.6)}
-  .row{display:flex;gap:10px}
-  input[type="text"], select{
-    width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:#eaf3ff;font-size:14px;
+  h1{margin:0;font-size:24px}
+  .tag{color:var(--muted);font-size:13px;margin-top:4px}
+
+  .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:30px}
+  .card{
+    background:rgba(255,255,255,0.03);
+    padding:20px;border-radius:16px;border:1px solid var(--border);
+    box-shadow:0 10px 40px rgba(2,6,12,0.5);
   }
-  button{padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#0b0610;font-weight:700;cursor:pointer}
-  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-  .muted{color:var(--muted);font-size:13px}
+
+  input,select{
+    width:100%;padding:12px;border-radius:12px;background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);color:white;font-size:14px;margin-bottom:12px;
+  }
+  button{
+    cursor:pointer;border:none;border-radius:12px;font-weight:700;
+    padding:12px 14px;
+  }
+  .btn-primary{
+    background:linear-gradient(90deg,var(--gold),var(--accent));
+    color:#111;box-shadow:0 8px 30px rgba(212,169,78,0.15);
+  }
+  .btn-ghost{
+    background:transparent;color:var(--muted);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .row{display:flex;gap:10px;align-items:center}
   .meta{font-size:13px;color:var(--muted);margin-top:8px}
-  .preview{display:flex;gap:12px;align-items:center;margin-top:14px}
-  .thumb{width:160px;height:90px;border-radius:8px;object-fit:cover;border:1px solid rgba(255,255,255,0.04)}
-  .title{font-weight:700;font-size:16px}
-  .platform-pill{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:12px;color:var(--muted);margin-left:8px}
-  #results{margin-top:14px}
-  .format{
-    display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:10px;margin-bottom:10px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)
+
+  .preview{display:none;align-items:center;gap:16px;margin-top:14px}
+  .thumb{
+    width:160px;height:92px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.08)
   }
-  .format .q{font-weight:700}
-  .format a{background:linear-gradient(90deg,var(--accent2),var(--accent));padding:8px 10px;border-radius:8px;color:#0b0610;text-decoration:none;font-weight:800}
-  .loading-box{display:flex;align-items:center;gap:10px;color:var(--muted);margin-top:10px}
-  .dots{display:flex;gap:6px}
-  .dot{width:8px;height:8px;background:var(--accent);border-radius:999px;opacity:.9;animation:jump .6s ease-in-out infinite alternate}
-  .dot:nth-child(2){animation-delay:.12s}
-  .dot:nth-child(3){animation-delay:.24s}
-  @keyframes jump{from{transform:translateY(0)}to{transform:translateY(-6px)}}
-  .history{margin-top:10px;max-height:360px;overflow:auto;padding-right:6px}
-  .hitem{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;background:rgba(255,255,255,0.01);margin-bottom:8px;border:1px solid rgba(255,255,255,0.02)}
-  .small{font-size:13px;color:var(--muted)}
-  .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-  @media(max-width:920px){.grid{grid-template-columns:1fr}.preview{flex-direction:column;align-items:flex-start}.thumb{width:100%;height:180px}}
+  .title{font-size:17px;font-weight:700;margin-bottom:4px}
+  .pill{
+    display:inline-block;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.06);
+    font-size:11px;color:var(--muted);
+  }
+
+  #results{margin-top:18px}
+
+  .format{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    padding:12px;border-radius:14px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .label{font-size:14px;font-weight:600}
+
+  footer{text-align:center;margin-top:30px;color:var(--muted);font-size:13px}
+
+  @media(max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .thumb{width:100px;height:70px}
+  }
 </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">AD</div>
-      <div>
-        <h1>AllDownloader — Premium</h1>
-        <div class="lead">Dark • Clean • Downloads: TikTok · Instagram · Facebook · YouTube</div>
-      </div>
-    </header>
+<div class="wrap">
 
-    <div class="grid">
-      <!-- LEFT -->
-      <main class="panel">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="small">Enter a public video link (Works with TikTok / IG / FB / YT)</div>
-          <div class="muted">Owner Lana</div>
-        </div>
+<header>
+  <div class="logo">LN</div>
+  <div>
+    <h1>LN Tools</h1>
+    <div class="tag">Premium Downloader — TikTok · Instagram · Facebook · YouTube</div>
+  </div>
+</header>
 
-        <div style="height:12px"></div>
+<div class="grid">
 
-        <div class="row">
-          <input id="url" placeholder="Paste link here — e.g. https://www.tiktok.com/..." />
-          <select id="platform">
-            <option value="auto">Auto</option>
-            <option value="tiktok">TikTok</option>
-            <option value="instagram">Instagram</option>
-            <option value="facebook">Facebook</option>
-            <option value="youtube">YouTube</option>
-          </select>
-          <button id="goBtn">Get</button>
-        </div>
+  <!-- LEFT -->
+  <main class="card">
+    <div class="small" style="margin-bottom:6px;color:var(--muted)">Tempel link video publik</div>
 
-        <div id="status" class="meta">Ready</div>
+    <input id="url" type="text" placeholder="https://www.tiktok.com/..." />
 
-        <div id="previewArea" class="preview" style="display:none">
-          <img id="thumb" class="thumb" src="" alt="thumb" />
-          <div style="flex:1">
-            <div class="title" id="title">—</div>
-            <div class="meta" id="metaInfo"></div>
-            <div id="platformBadge" style="margin-top:8px"></div>
-          </div>
-        </div>
-
-        <div id="results"></div>
-
-        <div id="errorBox" style="margin-top:12px;color:#ffb3c6;display:none"></div>
-      </main>
-
-      <!-- RIGHT -->
-      <aside class="panel">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div><strong>History</strong><div class="small">Local</div></div>
-          <div><button id="clearHist" class="btn-ghost">Clear</button></div>
-        </div>
-
-        <div class="history" id="history"></div>
-
-        <div style="height:12px"></div>
-
-        <div style="margin-top:12px">
-          <div class="small" style="margin-bottom:8px"><strong>Quick Test Links</strong></div>
-          <div class="small" style="display:flex;flex-direction:column;gap:8px">
-            <a href="#" class="linkTest" data-url="https://www.tiktok.com/@scout2015/video/6718335390845095173">TikTok example</a>
-            <a href="#" class="linkTest" data-url="https://vt.tiktok.com/ZS8X7Q1aW/">TikTok short</a>
-            <a href="#" class="linkTest" data-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ">YouTube example</a>
-            <a href="#" class="linkTest" data-url="https://www.facebook.com/watch/?v=10156072036227203">Facebook example</a>
-          </div>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="small">Deployment: works with your existing /api/extract</div>
-      </aside>
+    <div class="row">
+      <select id="platform">
+        <option value="auto">Auto</option>
+        <option value="tiktok">TikTok</option>
+        <option value="instagram">Instagram</option>
+        <option value="facebook">Facebook</option>
+        <option value="youtube">YouTube</option>
+      </select>
+      <button id="go" class="btn-primary">Get</button>
     </div>
 
-    <div class="footer">© 2025 Lana — AllDownloader · Dark Premium</div>
-  </div>
+    <div id="status" class="meta">Ready</div>
+
+    <!-- preview -->
+    <div id="preview" class="preview">
+      <img id="thumb" class="thumb" src="">
+      <div>
+        <div id="title" class="title"></div>
+        <div id="badge" class="pill"></div>
+      </div>
+    </div>
+
+    <!-- dropdown & download -->
+    <div id="qualityBox" style="margin-top:18px;display:none">
+
+      <div class="small" style="margin-bottom:6px;color:var(--muted)">Pilih Kualitas</div>
+
+      <select id="formatSelect"></select>
+
+      <button id="downloadBtn" class="btn-primary" style="width:100%;margin-top:10px">
+        Download
+      </button>
+    </div>
+
+    <div id="err" style="color:#ffb8b8;margin-top:12px;display:none"></div>
+  </main>
+
+  <!-- RIGHT -->
+  <aside class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div><strong>History</strong></div>
+      <button class="btn-ghost" id="clearHistory">Clear</button>
+    </div>
+
+    <div id="history" style="max-height:360px;overflow:auto"></div>
+
+    <div class="small" style="margin-top:18px;color:var(--muted)">
+      Sistem menggunakan proxy download <code>/api/download</code>
+    </div>
+  </aside>
+
+</div>
+
+<footer>LN Tools — Premium Downloader © 2025</footer>
+
+</div>
 
 <script>
-/* Utilities */
 const $ = id => document.getElementById(id);
-const LS = 'all_downloader_history_v2';
-function saveHist(obj){
-  try{
-    const arr = JSON.parse(localStorage.getItem(LS)||'[]');
-    arr.unshift(obj);
-    if(arr.length>60) arr.pop();
-    localStorage.setItem(LS, JSON.stringify(arr));
-    renderHist();
-  }catch(e){console.error(e)}
+const LS = "ln_history_v1";
+
+function setStatus(msg){ $("status").textContent = msg; }
+function showErr(msg){ $("err").style.display="block"; $("err").textContent=msg; }
+function clearErr(){ $("err").style.display="none"; $("err").textContent=""; }
+
+function saveHistory(u,p){
+  let h = JSON.parse(localStorage.getItem(LS)||"[]");
+  h.unshift({url:u, platform:p, t:Date.now()});
+  if(h.length>60) h.pop();
+  localStorage.setItem(LS, JSON.stringify(h));
 }
-function renderHist(){
-  const box = $('history'); box.innerHTML='';
-  const arr = JSON.parse(localStorage.getItem(LS)||'[]');
-  if(!arr.length){ box.innerHTML = '<div class="small">No history yet.</div>'; return; }
-  arr.forEach((it,idx)=>{
-    const d = document.createElement('div'); d.className='hitem';
-    d.innerHTML = `<div>
-      <div style="font-weight:700">${it.platform || 'auto'}</div>
-      <div class="small">${new Date(it.t).toLocaleString()}</div>
-      <div class="small" style="word-break:break-all">${it.url}</div>
-    </div>`;
-    const right = document.createElement('div');
-    const load = document.createElement('button'); load.className='btn-ghost'; load.textContent='Load';
-    load.onclick = ()=>{ $('url').value = it.url; $('platform').value = it.platform||'auto'; $('goBtn').click(); }
-    const del = document.createElement('button'); del.className='btn-ghost'; del.textContent='Del';
-    del.onclick = ()=>{ let a = JSON.parse(localStorage.getItem(LS)||'[]'); a.splice(idx,1); localStorage.setItem(LS, JSON.stringify(a)); renderHist(); };
-    right.appendChild(load); right.appendChild(del);
-    d.appendChild(right);
+function renderHistory(){
+  const box = $("history");
+  box.innerHTML = "";
+  const h = JSON.parse(localStorage.getItem(LS)||"[]");
+  if(!h.length){
+    box.innerHTML = `<div class="small">Empty</div>`;
+    return;
+  }
+  h.forEach((x,i)=>{
+    const d = document.createElement("div");
+    d.className="small";
+    d.style.padding="8px";
+    d.style.borderBottom="1px solid rgba(255,255,255,0.06)";
+    d.style.cursor="pointer";
+    d.innerHTML = `<b>${x.platform}</b><br>${x.url}<br>${new Date(x.t).toLocaleString()}`;
+    d.onclick = ()=>{ $("url").value = x.url; $("go").click(); };
     box.appendChild(d);
   });
 }
 
-/* UI helpers */
-function setStatus(txt, isLoading=false){
-  const s = $('status'); s.textContent = txt;
-  if(isLoading){
-    s.innerHTML = `<div class="loading-box"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><div style="opacity:.9">Fetching...</div></div>`;
-  }
-}
-function showError(msg){
-  const e = $('errorBox'); e.style.display='block'; e.textContent = msg;
-}
-function clearError(){ $('errorBox').style.display='none'; $('errorBox').textContent=''; }
+$("clearHistory").onclick = ()=>{ localStorage.removeItem(LS); renderHistory(); };
 
-/* detect platform */
-function detect(url){
-  const u = (url||'').toLowerCase();
-  if(u.includes('tiktok.com')||u.includes('vt.tiktok')) return 'tiktok';
-  if(u.includes('instagram.com')||u.includes('instagr')) return 'instagram';
-  if(u.includes('facebook.com')||u.includes('fb.watch')||u.includes('/watch/')) return 'facebook';
-  if(u.includes('youtube.com')||u.includes('youtu.be')) return 'youtube';
-  return 'unknown';
+function detectPlatform(u){
+  u = u.toLowerCase();
+  if(u.includes("tiktok.com")||u.includes("vt.tiktok")) return "tiktok";
+  if(u.includes("instagram.com")) return "instagram";
+  if(u.includes("facebook.com")||u.includes("fb.watch")) return "facebook";
+  if(u.includes("youtube.com")||u.includes("youtu.be")) return "youtube";
+  return "unknown";
 }
 
-/* render results */
-function renderResult(data, originalUrl){
-  const box = $('results'); box.innerHTML='';
-  if(!data || !data.formats || !data.formats.length){
-    box.innerHTML = `<div class="small">No downloadable formats found.</div>`;
-    return;
-  }
+async function handle(){
+  clearErr();
+  setStatus("Fetching...");
 
-  // Title & thumbnail already handled separately by caller
-  data.formats.forEach(f=>{
-    if(!f.url) return;
-    const el = document.createElement('div'); el.className='format';
-    const left = document.createElement('div'); left.innerHTML = `<div class="q">${(f.quality||f.label||'download').toUpperCase()}</div><div class="small">${f.size?f.size+' • ':''}${f.ext||''}</div>`;
-    const right = document.createElement('div');
-    const a = document.createElement('a'); a.href = f.url; a.target='_blank'; a.rel='noreferrer noopener';
-    a.textContent = 'DOWNLOAD';
-    right.appendChild(a);
-    el.appendChild(left); el.appendChild(right);
-    box.appendChild(el);
-  });
-}
+  const url = $("url").value.trim();
+  if(!url) return showErr("Masukkan URL");
 
-/* fetch extract */
-async function fetchExtract(url){
-  clearError();
-  setStatus('Fetching data...', true);
+  let plat = $("platform").value;
+  if(plat==="auto") plat = detectPlatform(url);
+
+  saveHistory(url, plat);
+  renderHistory();
+
   try{
-    const res = await fetch(`/api/extract?url=${encodeURIComponent(url)}`, {cache:'no-store'});
-    if(!res.ok){
-      throw new Error(`API error: ${res.status}`);
-    }
-    const j = await res.json();
-    return j;
-  }catch(e){
-    console.error(e);
-    throw e;
-  }finally{
-    // caller sets status afterwards
+    const r = await fetch(`/api/extract?url=${encodeURIComponent(url)}`);
+    const j = await r.json();
+    if(!j.ok) return showErr("Gagal mengambil data");
+
+    const data = j.data;
+
+    // preview
+    $("preview").style.display="flex";
+    $("thumb").src = data.thumbnail || "";
+    $("title").textContent = data.title || "Unknown";
+    $("badge").textContent = data.platform;
+
+    // format dropdown
+    $("qualityBox").style.display="block";
+    const sel = $("formatSelect");
+    sel.innerHTML = "";
+    data.formats.forEach(f=>{
+      const o = document.createElement("option");
+      o.value = f.url;
+      o.textContent = f.label;
+      sel.appendChild(o);
+    });
+
+    // download button
+    $("downloadBtn").onclick = ()=>{
+      const fURL = sel.value;
+      const name = (data.title || "video").replace(/[^a-z0-9]/gi,"_") + ".mp4";
+      const dURL = `/api/download?url=${encodeURIComponent(fURL)}&name=${encodeURIComponent(name)}`;
+      window.location.href = dURL;
+    };
+
+    setStatus("Ready");
+  }
+  catch(e){
+    console.log(e);
+    showErr("Error: "+e);
+    setStatus("Error");
   }
 }
 
-/* main handle */
-async function handleFetch(previewOnly=false){
-  clearError();
-  const url = $('url').value.trim();
-  if(!url) return alert('Masukkan link terlebih dahulu');
-  let platform = $('platform').value;
-  if(platform === 'auto') platform = detect(url);
-  saveHist = true;
-  // save history
-  saveHist && saveHistObj(url, platform);
+$("go").onclick = handle;
+$("url").onkeydown = e=>{ if(e.key==="Enter") handle(); };
 
-  setStatus('Fetching...', true);
-  try{
-    const json = await fetchExtract(url);
-    if(!json || !json.ok){
-      setStatus('Failed');
-      showError(json?.msg || 'No data returned from extractor');
-      return;
-    }
+renderHistory();
+setStatus("Ready");
 
-    // ui: title / thumbnail
-    const d = json.data || json; // support both shapes
-    $('previewArea').style.display='flex';
-    $('thumb').src = d.thumbnail || '';
-    $('title').textContent = d.title || 'Untitled';
-    $('metaInfo').textContent = `${d.platform || platform}`; // best effort
-    $('platformBadge').innerHTML = `<span class="platform-pill">${d.platform || platform}</span>`;
-
-    renderResult(d, url);
-    setStatus('Ready');
-  }catch(err){
-    setStatus('Error');
-    showError('Failed to fetch: ' + (err.message||err));
-  }
-}
-
-/* history helper (rename internal) */
-function saveHistObj(url, platform){
-  try{
-    const arr = JSON.parse(localStorage.getItem(LS)||'[]');
-    arr.unshift({t:Date.now(),url,platform});
-    if(arr.length>60) arr.pop();
-    localStorage.setItem(LS, JSON.stringify(arr));
-    renderHist();
-  }catch(e){ console.error(e) }
-}
-
-/* wire up */
-document.addEventListener('click', (ev)=>{
-  const t = ev.target;
-  if(t.matches('.linkTest')){ ev.preventDefault(); const u = t.dataset.url; $('url').value = u; $('goBtn').click(); }
-});
-
-$('goBtn').addEventListener('click', ()=> handleFetch(false));
-$('url').addEventListener('keydown', (e)=>{ if(e.key==='Enter') $('goBtn').click(); });
-
-$('clearHist').addEventListener('click', ()=>{ localStorage.removeItem(LS); renderHist(); });
-
-/* init */
-renderHist();
-setStatus('Ready');
-
-/* quick: if API is not same shape */
 </script>
+
 </body>
 </html>
