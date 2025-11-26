@@ -8,214 +8,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-/* ===========================================================
-   LANA DOWNLOADER — PREMIUM STYLE V2
-   Ultimate Glassmorphism • Neon Glow • Luxury Gradient
-   =========================================================== */
+    :root{
+      --bg1:#020204;
+      --bg2:#0b0f1a;
+      --card:rgba(255,255,255,0.03);
+      --accent1:#ffb86b;
+      --accent2:#ff6bcb;
+      --gold:#FFD166;
+      --muted:rgba(255,255,255,0.65);
+    }
 
-:root{
-  --bg-dark:#030014;
-  --bg-deep:#050016;
-  --glass:rgba(255,255,255,0.06);
-  --glass2:rgba(255,255,255,0.03);
-  --border:rgba(255,255,255,0.15);
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      font-family:'Poppins',Arial;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  --grad1:#ff7ce3;
-  --grad2:#b37bff;
-  --grad3:#55d7ff;
-  --gold:#FFD166;
-  --text-muted:rgba(255,255,255,0.65);
-}
+    .container{max-width:1100px;margin:40px auto;padding:20px}
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;}
+    header{
+      display:flex;align-items:center;gap:18px;
+    }
 
-body{
-  background: radial-gradient(circle at 30% 20%, #12002e, #050014 60%);
-  min-height:100vh;
-  color:white;
-  overflow-x:hidden;
-  position:relative;
-}
+    .brand{
+      width:80px;height:80px;border-radius:20px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:flex;align-items:center;justify-content:center;
+      color:#111;font-size:26px;font-weight:900;
+      box-shadow:0 12px 40px rgba(255,107,203,0.25);
+    }
 
-/* ✨ Floating Stars */
-body::before{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:url("https://i.ibb.co/8Pq3K0F/stars.png");
-  opacity:0.17;
-  pointer-events:none;
-  animation:floatStars 35s linear infinite;
-}
-@keyframes floatStars{
-  from{transform:translateY(0)}
-  to{transform:translateY(-900px)}
-}
+    h1{margin:0;font-size:26px}
+    .subtitle{margin-top:6px;color:var(--muted);font-size:13px}
 
-/* ✨ Glow Left */
-body::after{
-  content:"";
-  position:absolute;
-  top:10%;
-  left:-10%;
-  width:500px;height:500px;
-  background:radial-gradient(circle,#7a00ff55,#0000);
-  filter:blur(120px);
-  z-index:-1;
-}
+    .owner{
+      margin-left:auto;text-align:right;font-size:13px;color:var(--muted);
+    }
 
-/* HEADER */
-header{
-  display:flex;align-items:center;gap:18px;
-  padding:15px 0;
-}
+    .layout{
+      display:grid;grid-template-columns:1fr 360px;gap:25px;margin-top:25px;
+    }
 
-.brand{
-  width:85px;height:85px;border-radius:24px;
-  background:linear-gradient(145deg,var(--grad1),var(--grad3));
-  display:flex;align-items:center;justify-content:center;
-  color:#111;font-size:32px;font-weight:900;
-  box-shadow:0 15px 45px rgba(194,119,255,0.35);
-  border:2px solid rgba(255,255,255,0.2);
-}
+    .card{
+      background:var(--card);
+      padding:18px;border-radius:16px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 8px 40px rgba(3,6,16,0.6);
+    }
 
-h1{
-  font-size:30px;
-  background:linear-gradient(90deg,var(--grad1),var(--grad3));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-weight:900;
-}
+    input,select{
+      width:100%;padding:14px;border-radius:12px;
+      border:none;outline:none;font-size:14px;
+      background:rgba(255,255,255,0.06);color:#fff;
+      margin-bottom:12px;
+    }
 
-.subtitle{
-  margin-top:4px;font-size:13px;color:var(--text-muted);
-}
+    .btn{
+      padding:12px 14px;border-radius:12px;border:none;
+      cursor:pointer;font-weight:700;transition:0.2s;
+    }
 
-/* OWNER CARD */
-.owner{
-  margin-left:auto;text-align:right;font-size:13px;color:var(--text-muted);
-  padding:10px 16px;border-radius:12px;
-  background:var(--glass2);
-  border:1px solid var(--border);
-  backdrop-filter:blur(12px);
-}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:#111;
+    }
 
-/* LAYOUT */
-.container{
-  max-width:1180px;
-  margin:35px auto;
-  padding:20px;
-}
+    .btn-ghost{
+      background:transparent;color:var(--muted);
+      border:1px solid rgba(255,255,255,0.06);
+    }
 
-.layout{
-  display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:25px;
-}
+    .btn:hover{opacity:0.85}
 
-/* CARDS */
-.card{
-  background:var(--glass2);
-  backdrop-filter:blur(20px);
-  padding:20px;border-radius:18px;
-  border:1px solid var(--border);
-  box-shadow:0 12px 60px rgba(0,0,0,0.5);
-  animation:fadeUp .6s ease backwards;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
-}
+    .row{display:flex;gap:10px}
 
-/* INPUTS */
-input,select{
-  width:100%;padding:14px;border-radius:14px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.14);
-  color:#fff;font-size:14px;
-  transition:.2s;
-}
-input:focus,select:focus{
-  border-color:var(--grad2);
-  box-shadow:0 0 12px #c67aff55;
-}
+    .preview{
+      background:rgba(255,255,255,0.02);
+      border-radius:12px;min-height:240px;display:flex;
+      align-items:center;justify-content:center;overflow:hidden
+    }
 
-/* BUTTONS */
-.btn{
-  padding:12px 14px;border-radius:12px;border:none;
-  cursor:pointer;font-weight:700;transition:0.25s;
-}
+    .preview video,.preview img{
+      max-width:100%;max-height:420px;border-radius:10px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.5)
+    }
 
-.btn-primary{
-  background:linear-gradient(90deg,var(--grad1),var(--grad3));
-  color:#000;font-weight:900;
-  box-shadow:0 10px 30px rgba(95,211,255,0.35);
-}
-.btn-primary:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.08);
-}
+    .small{font-size:13px;color:var(--muted)}
 
-.btn-ghost{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  color:var(--text-muted);
-}
-.btn-ghost:hover{
-  background:rgba(255,255,255,0.12);
-  color:white;
-}
+    #results a{
+      display:block;padding:12px;
+      border-radius:10px;
+      margin-bottom:10px;
+      text-decoration:none;color:#fff;
+      background:linear-gradient(90deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02));
+      font-weight:700;
+      transition:0.2s;
+    }
 
-/* PREVIEW */
-.preview{
-  background:rgba(255,255,255,0.04);
-  border-radius:14px;min-height:260px;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.06);
-}
+    #results a:hover{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      opacity:0.9;
+    }
 
-.preview img,.preview video{
-  max-width:100%;border-radius:14px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.5);
-}
+    .loader{
+      border-radius:50%;width:32px;height:32px;
+      border:4px solid rgba(255,255,255,0.06);
+      border-top-color:var(--accent2);
+      animation:spin 1s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
 
-/* RESULTS */
-#results a{
-  display:block;padding:13px;
-  border-radius:12px;
-  margin-bottom:9px;text-decoration:none;
-  background:linear-gradient(90deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03));
-  color:white;font-weight:700;
-  transition:.25s;
-}
-#results a:hover{
-  background:linear-gradient(90deg,var(--grad1),var(--grad2));
-  transform:translateY(-2px);
-}
+    .history{max-height:350px;overflow:auto;margin-top:10px}
+    .item{
+      padding:10px;border-radius:10px;
+      background:rgba(255,255,255,0.03);margin-bottom:10px;
+      display:flex;justify-content:space-between;
+    }
 
-/* HISTORY */
-.history{
-  max-height:360px;overflow:auto;
-  padding-right:5px;
-}
-.item{
-  padding:12px;border-radius:12px;
-  background:rgba(255,255,255,0.05);
-  margin-bottom:12px;
-  border:1px solid rgba(255,255,255,0.08);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  header{flex-direction:column;text-align:center}
-  .owner{margin-left:0}
-}
+    @media(max-width:900px){
+      .layout{grid-template-columns:1fr}
+      header{flex-direction:column}
+      .owner{text-align:center;margin-left:0}
+    }
   </style>
 </head>
 
 <body>
-
   <div class="container">
     <header>
       <div class="brand">AD</div>
@@ -225,7 +146,7 @@ input:focus,select:focus{
       </div>
       <div class="owner">
         Owner: <b>Lana</b><br>
-        Premium Edition 2025
+        All rights reserved.
       </div>
     </header>
 
@@ -235,7 +156,7 @@ input:focus,select:focus{
         <div class="card">
           <input id="url" placeholder="Tempel link TikTok / Instagram / Facebook / YouTube">
 
-          <div class="row" style="display:flex;gap:10px;margin-top:12px">
+          <div class="row">
             <select id="platform">
               <option value="auto">Auto Detect</option>
               <option value="tiktok">TikTok</option>
@@ -246,18 +167,18 @@ input:focus,select:focus{
             <button class="btn btn-primary" id="btnDownload">Download</button>
           </div>
 
-          <div class="row" style="display:flex;gap:10px;margin-top:10px">
+          <div class="row" style="margin-top:10px">
             <button class="btn btn-ghost" id="btnPreview">Preview</button>
             <button class="btn btn-ghost" id="btnClear">Clear</button>
             <button class="btn btn-ghost" id="btnCopy">Copy</button>
           </div>
 
-          <div class="small" id="meta" style="margin-top:12px;color:var(--text-muted)">Status: Ready</div>
+          <div class="small" id="meta" style="margin-top:12px">Status: Ready</div>
         </div>
 
         <div class="card" style="margin-top:20px">
           <div id="preview" class="preview">Preview akan muncul di sini</div>
-          <div id="previewMeta" class="small" style="margin-top:10px;color:var(--text-muted)"></div>
+          <div id="previewMeta" class="small" style="margin-top:10px"></div>
         </div>
       </main>
 
@@ -269,10 +190,10 @@ input:focus,select:focus{
         </div>
 
         <div class="card" style="margin-top:20px">
-          <h3 style="margin-top:0;margin-bottom:8px">History</h3>
+          <h3 style="margin:0 0 8px 0">History</h3>
           <div id="history" class="history"></div>
 
-          <div class="row" style="display:flex;gap:10px;margin-top:10px">
+          <div class="row" style="margin-top:10px">
             <button class="btn btn-ghost" id="btnClearHistory">Hapus</button>
             <button class="btn btn-ghost" id="btnExport">Export</button>
           </div>
@@ -281,9 +202,6 @@ input:focus,select:focus{
     </div>
   </div>
 
-  <!-- ============================================================
-       JAVASCRIPT DOWNLOADER (punya kamu, tidak diubah)
-       ============================================================ -->
   <script>
     const el = x => document.getElementById(x);
     const LS = "all_down_hist_v1";
@@ -291,7 +209,7 @@ input:focus,select:focus{
     function detectPlatform(url){
       url = url.toLowerCase();
       if(url.includes("tiktok")) return "tiktok";
-      if(url.includes("instagram")||url.includes("instagr")) return "instagram";
+      if(url.includes("instagram")) return "instagram";
       if(url.includes("facebook")||url.includes("fb.watch")) return "facebook";
       if(url.includes("youtube")||url.includes("youtu.be")) return "youtube";
       return "unknown";
@@ -380,9 +298,12 @@ input:focus,select:focus{
       box.innerHTML = `<div class='small'>Preview tidak tersedia.</div>`;
     }
 
+    /* ===========================================
+       FIX FINAL — 100% COMPATIBLE WITH extract.js
+       ========================================== */
     function renderResult(service,data){
       const box = el("results");
-      box.innerHTML="";
+      box.innerHTML = "";
 
       if(!data || !data.formats){
         box.innerHTML = `<div class='small'>Tidak ada format tersedia</div>`;
@@ -391,13 +312,15 @@ input:focus,select:focus{
 
       data.formats.forEach(f=>{
         if(!f.url) return;
-        let q = f.quality || f.format_note || "";
-        let ext = f.ext || "";
-        let btn = document.createElement("a");
-        btn.textContent = `${q}`;
-        btn.href = f.url;
-        btn.target = "_blank";
-        box.appendChild(btn);
+
+        let label = f.quality || "DOWNLOAD";
+
+        let a = document.createElement("a");
+        a.textContent = label.toUpperCase();
+        a.href = f.url;
+        a.target = "_blank";
+
+        box.appendChild(a);
       });
     }
 
@@ -423,8 +346,10 @@ input:focus,select:focus{
         return;
       }
 
-      renderResult(service,res);
-      if(preview) renderPreview(service,res);
+      res.data.original_url = url;
+      renderResult(service,res.data);
+
+      if(preview) renderPreview(service,res.data);
     }
 
     el("btnDownload").onclick = ()=>handle(false);
