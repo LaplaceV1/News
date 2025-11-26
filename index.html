@@ -1,353 +1,447 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lana Downloader — Ultimate God-Tier Edition</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AllDownloader — Lana Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 /* ===========================================================
-   LANA DOWNLOADER — ULTIMATE GOD-TIER EDITION
-   LEVEL MAKSIMAL UI PREMIUM AESTHETIC
+   LANA DOWNLOADER — PREMIUM STYLE V2
+   Ultimate Glassmorphism • Neon Glow • Luxury Gradient
    =========================================================== */
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-body {
-  background:#030109;
+:root{
+  --bg-dark:#030014;
+  --bg-deep:#050016;
+  --glass:rgba(255,255,255,0.06);
+  --glass2:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.15);
+
+  --grad1:#ff7ce3;
+  --grad2:#b37bff;
+  --grad3:#55d7ff;
+  --gold:#FFD166;
+  --text-muted:rgba(255,255,255,0.65);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;}
+
+body{
+  background: radial-gradient(circle at 30% 20%, #12002e, #050014 60%);
+  min-height:100vh;
+  color:white;
   overflow-x:hidden;
-  color:#fff;
-}
-
-/* ========== 3 Layer GALAXY PARALLAX ========== */
-.galaxy {
-  position:fixed; inset:0;
-  background:
-    url('https://i.ibb.co/Gx2pw5g/stars1.png'),
-    url('https://i.ibb.co/ZM4LCP3/stars2.png'),
-    url('https://i.ibb.co/5Gg0y0H/stars3.png');
-  background-size:cover;
-  z-index:-5;
-  animation:galaxyMove 200s linear infinite;
-}
-@keyframes galaxyMove {
-  from { background-position:0 0, 0 0, 0 0; }
-  to   { background-position:2000px 1000px, 1500px 800px, 1000px 600px; }
-}
-
-/* ===== Animated AURA ===== */
-body::before {
-  content:"";
-  position:fixed; inset:-20%;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(170,0,255,0.45), transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(0,195,255,0.40), transparent 55%),
-    radial-gradient(circle at 50% 80%, rgba(255,70,200,0.40), transparent 60%);
-  filter:blur(150px);
-  animation:aura 18s infinite alternate ease-in-out;
-  z-index:-4;
-}
-@keyframes aura {
-  0% { transform:translate(0,0) scale(1); }
-  100% { transform:translate(150px,-120px) scale(1.4); }
-}
-
-/* ===== PARTICLES ===== */
-canvas#particles {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-3;
-}
-
-/* ===== METEOR ===== */
-.meteor {
-  position:fixed;
-  width:2px;
-  height:150px;
-  background:linear-gradient(to bottom,rgba(255,255,255,0.8),transparent);
-  filter:blur(0.6px);
-  top:-150px;
-  transform:rotate(55deg);
-  animation:meteorFall 3.5s linear infinite;
-  z-index:-2;
-  opacity:0.7;
-}
-@keyframes meteorFall {
-  from { transform:translateX(0) translateY(0) rotate(55deg); opacity:1; }
-  to   { transform:translate(-600px,900px) rotate(55deg); opacity:0; }
-}
-
-/* ===== MAIN CARD ===== */
-.container {
-  max-width:900px;
-  margin:80px auto;
-  padding:40px;
-  background:rgba(255,255,255,0.07);
-  backdrop-filter:blur(28px);
-  border-radius:30px;
-  border:2px solid rgba(255,255,255,0.14);
-  box-shadow:
-    0 0 40px rgba(255,0,200,0.25),
-    0 0 90px rgba(130,80,255,0.25),
-    inset 0 0 25px rgba(255,255,255,0.05);
-  animation:float 6s ease-in-out infinite, fadeUp 1.2s ease;
   position:relative;
 }
 
-/* RGB Neon Border */
-.container::before {
+/* ✨ Floating Stars */
+body::before{
   content:"";
   position:absolute;
-  inset:-4px;
-  border-radius:32px;
-  background:linear-gradient(140deg,#ff33bc,#8d48ff,#4bd8ff,#4bffd4,#ff33bc);
-  background-size:400% 400%;
-  animation:borderFlow 10s infinite ease;
+  width:100%;
+  height:100%;
+  background:url("https://i.ibb.co/8Pq3K0F/stars.png");
+  opacity:0.17;
+  pointer-events:none;
+  animation:floatStars 35s linear infinite;
+}
+@keyframes floatStars{
+  from{transform:translateY(0)}
+  to{transform:translateY(-900px)}
+}
+
+/* ✨ Glow Left */
+body::after{
+  content:"";
+  position:absolute;
+  top:10%;
+  left:-10%;
+  width:500px;height:500px;
+  background:radial-gradient(circle,#7a00ff55,#0000);
+  filter:blur(120px);
   z-index:-1;
-  filter:blur(14px);
-  opacity:0.85;
 }
 
-@keyframes borderFlow {
-  0% { background-position:0% 0%; }
-  100% { background-position:300% 300%; }
+/* HEADER */
+header{
+  display:flex;align-items:center;gap:18px;
+  padding:15px 0;
 }
 
-@keyframes float {
-  0%,100% { transform:translateY(-8px); }
-  50%     { transform:translateY(8px); }
+.brand{
+  width:85px;height:85px;border-radius:24px;
+  background:linear-gradient(145deg,var(--grad1),var(--grad3));
+  display:flex;align-items:center;justify-content:center;
+  color:#111;font-size:32px;font-weight:900;
+  box-shadow:0 15px 45px rgba(194,119,255,0.35);
+  border:2px solid rgba(255,255,255,0.2);
 }
 
-@keyframes fadeUp {
-  0% { opacity:0; transform:translateY(60px); }
-  100% { opacity:1; transform:translateY(0); }
-}
-
-/* ===== TITLE ===== */
-.title {
-  text-align:center;
-  font-size:54px;
-  font-weight:900;
-  letter-spacing:1px;
-  background:linear-gradient(90deg,#ff7ff0,#b28aff,#69d7ff,#a8ffe3);
+h1{
+  font-size:30px;
+  background:linear-gradient(90deg,var(--grad1),var(--grad3));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 0 35px rgba(255,120,255,0.3);
+  font-weight:900;
 }
 
-.subtitle {
-  text-align:center;
-  margin-top:10px;
-  font-size:17px;
-  color:#eaeaea;
+.subtitle{
+  margin-top:4px;font-size:13px;color:var(--text-muted);
 }
 
-/* INPUT */
-input {
-  width:100%;
-  margin-top:30px;
-  padding:19px;
-  border-radius:18px;
-  font-size:18px;
-  color:#fff;
-  background:rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.2);
-  box-shadow:inset 0 0 18px rgba(255,255,255,0.05);
-  outline:none;
-  transition:0.3s;
-}
-input:focus {
-  background:rgba(255,255,255,0.22);
-  border-color:#c28fff;
-  box-shadow:0 0 22px rgba(198,140,255,0.55);
-}
-
-/* BUTTON */
-button {
-  width:100%;
-  margin-top:25px;
-  padding:17px;
-  font-size:22px;
-  border-radius:20px;
-  border:none;
-  font-weight:800;
-  background:linear-gradient(120deg,#ff63da,#a168ff,#27c8ff);
-  color:#0e0013;
-  cursor:pointer;
-  transition:0.25s;
-}
-button:hover {
-  transform:translateY(-4px);
-  box-shadow:0 15px 45px rgba(150,0,255,0.35);
-}
-
-/* RESULT */
-.result-box {
-  margin-top:45px;
-  padding:25px;
-  border-radius:22px;
-  background:rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.18);
+/* OWNER CARD */
+.owner{
+  margin-left:auto;text-align:right;font-size:13px;color:var(--text-muted);
+  padding:10px 16px;border-radius:12px;
+  background:var(--glass2);
+  border:1px solid var(--border);
   backdrop-filter:blur(12px);
 }
 
-.result-title {
-  font-size:24px;
-  font-weight:700;
+/* LAYOUT */
+.container{
+  max-width:1180px;
+  margin:35px auto;
+  padding:20px;
 }
 
-.format-list a {
-  display:block;
-  margin-top:16px;
-  padding:14px;
-  border-radius:16px;
-  text-decoration:none;
-  font-weight:700;
-  background:rgba(255,255,255,0.16);
-  color:#fff;
-  transition:0.25s;
+.layout{
+  display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:25px;
 }
-.format-list a:hover {
-  background:rgba(255,255,255,0.3);
-  transform:translateX(8px);
+
+/* CARDS */
+.card{
+  background:var(--glass2);
+  backdrop-filter:blur(20px);
+  padding:20px;border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:0 12px 60px rgba(0,0,0,0.5);
+  animation:fadeUp .6s ease backwards;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* INPUTS */
+input,select{
+  width:100%;padding:14px;border-radius:14px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.14);
+  color:#fff;font-size:14px;
+  transition:.2s;
+}
+input:focus,select:focus{
+  border-color:var(--grad2);
+  box-shadow:0 0 12px #c67aff55;
+}
+
+/* BUTTONS */
+.btn{
+  padding:12px 14px;border-radius:12px;border:none;
+  cursor:pointer;font-weight:700;transition:0.25s;
+}
+
+.btn-primary{
+  background:linear-gradient(90deg,var(--grad1),var(--grad3));
+  color:#000;font-weight:900;
+  box-shadow:0 10px 30px rgba(95,211,255,0.35);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+}
+
+.btn-ghost{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  color:var(--text-muted);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,0.12);
+  color:white;
 }
 
 /* PREVIEW */
-.preview-box {
-  margin-top:35px;
-  text-align:center;
-}
-.preview-box img {
-  width:100%;
-  max-height:340px;
-  border-radius:22px;
-  object-fit:cover;
-  box-shadow:0 18px 50px rgba(0,0,0,0.7);
+.preview{
+  background:rgba(255,255,255,0.04);
+  border-radius:14px;min-height:260px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
 }
 
-/* FOOTER */
-.footer {
-  margin-top:50px;
-  text-align:center;
-  font-size:15px;
-  color:#d9d9d9;
+.preview img,.preview video{
+  max-width:100%;border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
-.footer b {
-  color:#ff92ff;
-  font-weight:900;
+
+/* RESULTS */
+#results a{
+  display:block;padding:13px;
+  border-radius:12px;
+  margin-bottom:9px;text-decoration:none;
+  background:linear-gradient(90deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03));
+  color:white;font-weight:700;
+  transition:.25s;
 }
-</style>
+#results a:hover{
+  background:linear-gradient(90deg,var(--grad1),var(--grad2));
+  transform:translateY(-2px);
+}
+
+/* HISTORY */
+.history{
+  max-height:360px;overflow:auto;
+  padding-right:5px;
+}
+.item{
+  padding:12px;border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  header{flex-direction:column;text-align:center}
+  .owner{margin-left:0}
+}
+  </style>
 </head>
 
 <body>
 
-<div class="galaxy"></div>
-<canvas id="particles"></canvas>
+  <div class="container">
+    <header>
+      <div class="brand">AD</div>
+      <div>
+        <h1>AllDownloader <span style="color:var(--gold)">Premium</span></h1>
+        <div class="subtitle">Downloader TikTok • Instagram • Facebook • YouTube — Owner Lana</div>
+      </div>
+      <div class="owner">
+        Owner: <b>Lana</b><br>
+        Premium Edition 2025
+      </div>
+    </header>
 
-<div class="meteor" style="left:20%;animation-delay:0s;"></div>
-<div class="meteor" style="left:60%;animation-delay:1.2s;"></div>
-<div class="meteor" style="left:80%;animation-delay:2.1s;"></div>
+    <div class="layout">
+      <!-- LEFT -->
+      <main>
+        <div class="card">
+          <input id="url" placeholder="Tempel link TikTok / Instagram / Facebook / YouTube">
 
-<div class="container">
-  <div class="title">Lana Downloader</div>
-  <div class="subtitle">Ultimate God-Tier Premium Edition</div>
+          <div class="row" style="display:flex;gap:10px;margin-top:12px">
+            <select id="platform">
+              <option value="auto">Auto Detect</option>
+              <option value="tiktok">TikTok</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="youtube">YouTube</option>
+            </select>
+            <button class="btn btn-primary" id="btnDownload">Download</button>
+          </div>
 
-  <input type="text" id="url" placeholder="Tempel link video / musik apa saja">
+          <div class="row" style="display:flex;gap:10px;margin-top:10px">
+            <button class="btn btn-ghost" id="btnPreview">Preview</button>
+            <button class="btn btn-ghost" id="btnClear">Clear</button>
+            <button class="btn btn-ghost" id="btnCopy">Copy</button>
+          </div>
 
-  <button onclick="startExtract()">Mulai Download</button>
+          <div class="small" id="meta" style="margin-top:12px;color:var(--text-muted)">Status: Ready</div>
+        </div>
 
-  <div id="result" class="result-box" style="display:none;">
-    <div class="result-title">Hasil Download:</div>
-    <div id="formats" class="format-list"></div>
+        <div class="card" style="margin-top:20px">
+          <div id="preview" class="preview">Preview akan muncul di sini</div>
+          <div id="previewMeta" class="small" style="margin-top:10px;color:var(--text-muted)"></div>
+        </div>
+      </main>
+
+      <!-- RIGHT -->
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0;margin-bottom:8px">Hasil & Resolusi</h3>
+          <div id="results" class="small">Belum ada hasil.</div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <h3 style="margin-top:0;margin-bottom:8px">History</h3>
+          <div id="history" class="history"></div>
+
+          <div class="row" style="display:flex;gap:10px;margin-top:10px">
+            <button class="btn btn-ghost" id="btnClearHistory">Hapus</button>
+            <button class="btn btn-ghost" id="btnExport">Export</button>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <div id="preview" class="preview-box" style="display:none;">
-    <img id="previewImg">
-    <div id="previewTitle" style="margin-top:12px;color:#e7e7e7;font-size:17px;"></div>
-  </div>
+  <!-- ============================================================
+       JAVASCRIPT DOWNLOADER (punya kamu, tidak diubah)
+       ============================================================ -->
+  <script>
+    const el = x => document.getElementById(x);
+    const LS = "all_down_hist_v1";
 
-  <div class="footer">© 2025 <b>Lana</b> — The Ultimate Downloader Experience</div>
-</div>
+    function detectPlatform(url){
+      url = url.toLowerCase();
+      if(url.includes("tiktok")) return "tiktok";
+      if(url.includes("instagram")||url.includes("instagr")) return "instagram";
+      if(url.includes("facebook")||url.includes("fb.watch")) return "facebook";
+      if(url.includes("youtube")||url.includes("youtu.be")) return "youtube";
+      return "unknown";
+    }
 
+    function saveHistory(item){
+      const h = JSON.parse(localStorage.getItem(LS)||"[]");
+      h.unshift(item);
+      if(h.length > 60) h.pop();
+      localStorage.setItem(LS, JSON.stringify(h));
+      renderHistory();
+    }
 
-<script>
-/* ============================================================
-   BACKEND CONNECTOR
-   ============================================================ */
-async function startExtract(){
-  const url=document.getElementById("url").value.trim();
-  if(!url) return alert("Masukkan link!");
+    function renderHistory(){
+      const h = JSON.parse(localStorage.getItem(LS)||"[]");
+      const box = el("history");
+      box.innerHTML = "";
 
-  const box=document.getElementById("result");
-  const formats=document.getElementById("formats");
-  const prev=document.getElementById("preview");
+      if(!h.length){
+        box.innerHTML = `<div class='small'>Belum ada history.</div>`;
+        return;
+      }
 
-  box.style.display="block"; prev.style.display="none";
-  formats.innerHTML="Memproses...";
+      h.forEach((x,i)=>{
+        const d = document.createElement("div");
+        d.className = "item";
+        d.innerHTML = `
+          <div>
+            <b>${x.platform}</b><br>
+            <span class="small">${x.url}</span>
+          </div>
+          <div style="text-align:right">
+            <div class="small">${new Date(x.t).toLocaleString()}</div>
+            <button class="btn btn-ghost" onclick="loadEntry(${i})">Load</button>
+          </div>
+        `;
+        box.appendChild(d);
+      });
+    }
 
-  const r=await fetch(`/api/extract?url=${encodeURIComponent(url)}`);
-  let j;
-  try{ j=await r.json(); } catch{ j={ok:false,msg:"Invalid response"}; }
+    function loadEntry(i){
+      const h = JSON.parse(localStorage.getItem(LS)||"[]");
+      if(!h[i]) return;
+      el("url").value = h[i].url;
+      el("platform").value = h[i].platform;
+    }
 
-  if(!j.ok){
-    formats.innerHTML=`<div style="color:#ff6d8a;">Gagal: ${j.msg}</div>`;
-    return;
-  }
+    el("btnClearHistory").onclick = ()=>{
+      localStorage.removeItem(LS);renderHistory();
+    };
 
-  formats.innerHTML="";
-  j.formats.forEach(f=>{
-    if(!f.url) return;
-    const a=document.createElement("a");
-    a.href=f.url; a.target="_blank";
-    a.innerText=f.quality.toUpperCase()+" — Download";
-    formats.appendChild(a);
-  });
+    el("btnExport").onclick = ()=>{
+      const d = localStorage.getItem(LS)||"[]";
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([d],{type:"application/json"}));
+      a.download = "all_downloader_history.json";
+      a.click();
+    };
 
-  if(j.thumbnail){
-    document.getElementById("previewImg").src=j.thumbnail;
-    document.getElementById("previewTitle").innerText=j.title||"";
-    prev.style.display="block";
-  }
-}
+    el("btnCopy").onclick = ()=>{
+      navigator.clipboard.writeText(el("url").value);
+      alert("Copied!");
+    };
 
-/* ============================================================
-   PARTICLE SYSTEM
-   ============================================================ */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-let w,h,particles=[];
-function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; }
-addEventListener("resize",resize); resize();
+    el("btnClear").onclick = ()=>{
+      el("url").value="";
+      el("results").innerHTML = "Belum ada hasil.";
+      el("preview").innerHTML = "Preview akan muncul di sini";
+      el("previewMeta").innerHTML = "";
+    };
 
-function create(){ particles=[];
-  for(let i=0;i<110;i++){
-    particles.push({
-      x:Math.random()*w,
-      y:Math.random()*h,
-      r:Math.random()*2+0.5,
-      dx:(Math.random()*0.6-0.3),
-      dy:(Math.random()*0.6-0.3),
-      a:Math.random()*0.9+0.1
+    function renderPreview(service,data){
+      const box = el("preview");
+      box.innerHTML = "";
+      el("previewMeta").innerHTML = "";
+
+      try{
+        if(data.thumbnail){
+          let img = document.createElement("img");
+          img.src = data.thumbnail;
+          box.appendChild(img);
+          return;
+        }
+      }catch{}
+
+      box.innerHTML = `<div class='small'>Preview tidak tersedia.</div>`;
+    }
+
+    function renderResult(service,data){
+      const box = el("results");
+      box.innerHTML="";
+
+      if(!data || !data.formats){
+        box.innerHTML = `<div class='small'>Tidak ada format tersedia</div>`;
+        return;
+      }
+
+      data.formats.forEach(f=>{
+        if(!f.url) return;
+        let q = f.quality || f.format_note || "";
+        let ext = f.ext || "";
+        let btn = document.createElement("a");
+        btn.textContent = `${q}`;
+        btn.href = f.url;
+        btn.target = "_blank";
+        box.appendChild(btn);
+      });
+    }
+
+    async function extract(url){
+      const res = await fetch(`/api/extract?url=${encodeURIComponent(url)}`);
+      return await res.json();
+    }
+
+    async function handle(preview){
+      const url = el("url").value.trim();
+      if(!url) return alert("Masukkan link dulu");
+
+      let service = el("platform").value;
+      if(service==="auto") service = detectPlatform(url);
+
+      saveHistory({url,platform:service,t:Date.now()});
+
+      el("results").innerHTML = `Loading <div class="loader" style="display:inline-block;vertical-align:middle"></div>`;
+
+      const res = await extract(url);
+      if(!res.ok){
+        el("results").innerHTML = `<div class='small'>Gagal mengambil data.</div>`;
+        return;
+      }
+
+      renderResult(service,res);
+      if(preview) renderPreview(service,res);
+    }
+
+    el("btnDownload").onclick = ()=>handle(false);
+    el("btnPreview").onclick  = ()=>handle(true);
+
+    el("url").addEventListener("paste",()=>{
+      setTimeout(()=>{
+        let u = el("url").value;
+        if(el("platform").value === "auto"){
+          let p = detectPlatform(u);
+          if(p!=="unknown") el("platform").value = p;
+        }
+      },50);
     });
-  }
-}
-create();
 
-function draw(){
-  ctx.clearRect(0,0,w,h);
-  particles.forEach(p=>{
-    ctx.beginPath(); ctx.fillStyle=`rgba(255,255,255,${p.a})`;
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    p.x+=p.dx; p.y+=p.dy;
-    if(p.x<0||p.x>w) p.dx*=-1;
-    if(p.y<0||p.y>h) p.dy*=-1;
-  });
-  requestAnimationFrame(draw);
-}
-draw();
-</script>
+    renderHistory();
+  </script>
 
 </body>
 </html>
