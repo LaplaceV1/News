@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lana Downloader — Ultimate God-Tier Edition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================================
+   LANA DOWNLOADER — ULTIMATE GOD-TIER EDITION
+   LEVEL MAKSIMAL UI PREMIUM AESTHETIC
+   =========================================================== */
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body {
+  background:#030109;
+  overflow-x:hidden;
+  color:#fff;
+}
+
+/* ========== 3 Layer GALAXY PARALLAX ========== */
+.galaxy {
+  position:fixed; inset:0;
+  background:
+    url('https://i.ibb.co/Gx2pw5g/stars1.png'),
+    url('https://i.ibb.co/ZM4LCP3/stars2.png'),
+    url('https://i.ibb.co/5Gg0y0H/stars3.png');
+  background-size:cover;
+  z-index:-5;
+  animation:galaxyMove 200s linear infinite;
+}
+@keyframes galaxyMove {
+  from { background-position:0 0, 0 0, 0 0; }
+  to   { background-position:2000px 1000px, 1500px 800px, 1000px 600px; }
+}
+
+/* ===== Animated AURA ===== */
+body::before {
+  content:"";
+  position:fixed; inset:-20%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(170,0,255,0.45), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(0,195,255,0.40), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(255,70,200,0.40), transparent 60%);
+  filter:blur(150px);
+  animation:aura 18s infinite alternate ease-in-out;
+  z-index:-4;
+}
+@keyframes aura {
+  0% { transform:translate(0,0) scale(1); }
+  100% { transform:translate(150px,-120px) scale(1.4); }
+}
+
+/* ===== PARTICLES ===== */
+canvas#particles {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-3;
+}
+
+/* ===== METEOR ===== */
+.meteor {
+  position:fixed;
+  width:2px;
+  height:150px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0.8),transparent);
+  filter:blur(0.6px);
+  top:-150px;
+  transform:rotate(55deg);
+  animation:meteorFall 3.5s linear infinite;
+  z-index:-2;
+  opacity:0.7;
+}
+@keyframes meteorFall {
+  from { transform:translateX(0) translateY(0) rotate(55deg); opacity:1; }
+  to   { transform:translate(-600px,900px) rotate(55deg); opacity:0; }
+}
+
+/* ===== MAIN CARD ===== */
+.container {
+  max-width:900px;
+  margin:80px auto;
+  padding:40px;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(28px);
+  border-radius:30px;
+  border:2px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 0 40px rgba(255,0,200,0.25),
+    0 0 90px rgba(130,80,255,0.25),
+    inset 0 0 25px rgba(255,255,255,0.05);
+  animation:float 6s ease-in-out infinite, fadeUp 1.2s ease;
+  position:relative;
+}
+
+/* RGB Neon Border */
+.container::before {
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:32px;
+  background:linear-gradient(140deg,#ff33bc,#8d48ff,#4bd8ff,#4bffd4,#ff33bc);
+  background-size:400% 400%;
+  animation:borderFlow 10s infinite ease;
+  z-index:-1;
+  filter:blur(14px);
+  opacity:0.85;
+}
+
+@keyframes borderFlow {
+  0% { background-position:0% 0%; }
+  100% { background-position:300% 300%; }
+}
+
+@keyframes float {
+  0%,100% { transform:translateY(-8px); }
+  50%     { transform:translateY(8px); }
+}
+
+@keyframes fadeUp {
+  0% { opacity:0; transform:translateY(60px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+
+/* ===== TITLE ===== */
+.title {
+  text-align:center;
+  font-size:54px;
+  font-weight:900;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#ff7ff0,#b28aff,#69d7ff,#a8ffe3);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 35px rgba(255,120,255,0.3);
+}
+
+.subtitle {
+  text-align:center;
+  margin-top:10px;
+  font-size:17px;
+  color:#eaeaea;
+}
+
+/* INPUT */
+input {
+  width:100%;
+  margin-top:30px;
+  padding:19px;
+  border-radius:18px;
+  font-size:18px;
+  color:#fff;
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:inset 0 0 18px rgba(255,255,255,0.05);
+  outline:none;
+  transition:0.3s;
+}
+input:focus {
+  background:rgba(255,255,255,0.22);
+  border-color:#c28fff;
+  box-shadow:0 0 22px rgba(198,140,255,0.55);
+}
+
+/* BUTTON */
+button {
+  width:100%;
+  margin-top:25px;
+  padding:17px;
+  font-size:22px;
+  border-radius:20px;
+  border:none;
+  font-weight:800;
+  background:linear-gradient(120deg,#ff63da,#a168ff,#27c8ff);
+  color:#0e0013;
+  cursor:pointer;
+  transition:0.25s;
+}
+button:hover {
+  transform:translateY(-4px);
+  box-shadow:0 15px 45px rgba(150,0,255,0.35);
+}
+
+/* RESULT */
+.result-box {
+  margin-top:45px;
+  padding:25px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.18);
+  backdrop-filter:blur(12px);
+}
+
+.result-title {
+  font-size:24px;
+  font-weight:700;
+}
+
+.format-list a {
+  display:block;
+  margin-top:16px;
+  padding:14px;
+  border-radius:16px;
+  text-decoration:none;
+  font-weight:700;
+  background:rgba(255,255,255,0.16);
+  color:#fff;
+  transition:0.25s;
+}
+.format-list a:hover {
+  background:rgba(255,255,255,0.3);
+  transform:translateX(8px);
+}
+
+/* PREVIEW */
+.preview-box {
+  margin-top:35px;
+  text-align:center;
+}
+.preview-box img {
+  width:100%;
+  max-height:340px;
+  border-radius:22px;
+  object-fit:cover;
+  box-shadow:0 18px 50px rgba(0,0,0,0.7);
+}
+
+/* FOOTER */
+.footer {
+  margin-top:50px;
+  text-align:center;
+  font-size:15px;
+  color:#d9d9d9;
+}
+.footer b {
+  color:#ff92ff;
+  font-weight:900;
+}
+</style>
+</head>
+
+<body>
+
+<div class="galaxy"></div>
+<canvas id="particles"></canvas>
+
+<div class="meteor" style="left:20%;animation-delay:0s;"></div>
+<div class="meteor" style="left:60%;animation-delay:1.2s;"></div>
+<div class="meteor" style="left:80%;animation-delay:2.1s;"></div>
+
+<div class="container">
+  <div class="title">Lana Downloader</div>
+  <div class="subtitle">Ultimate God-Tier Premium Edition</div>
+
+  <input type="text" id="url" placeholder="Tempel link video / musik apa saja">
+
+  <button onclick="startExtract()">Mulai Download</button>
+
+  <div id="result" class="result-box" style="display:none;">
+    <div class="result-title">Hasil Download:</div>
+    <div id="formats" class="format-list"></div>
+  </div>
+
+  <div id="preview" class="preview-box" style="display:none;">
+    <img id="previewImg">
+    <div id="previewTitle" style="margin-top:12px;color:#e7e7e7;font-size:17px;"></div>
+  </div>
+
+  <div class="footer">© 2025 <b>Lana</b> — The Ultimate Downloader Experience</div>
+</div>
+
+
+<script>
+/* ============================================================
+   BACKEND CONNECTOR
+   ============================================================ */
+async function startExtract(){
+  const url=document.getElementById("url").value.trim();
+  if(!url) return alert("Masukkan link!");
+
+  const box=document.getElementById("result");
+  const formats=document.getElementById("formats");
+  const prev=document.getElementById("preview");
+
+  box.style.display="block"; prev.style.display="none";
+  formats.innerHTML="Memproses...";
+
+  const r=await fetch(`/api/extract?url=${encodeURIComponent(url)}`);
+  let j;
+  try{ j=await r.json(); } catch{ j={ok:false,msg:"Invalid response"}; }
+
+  if(!j.ok){
+    formats.innerHTML=`<div style="color:#ff6d8a;">Gagal: ${j.msg}</div>`;
+    return;
+  }
+
+  formats.innerHTML="";
+  j.formats.forEach(f=>{
+    if(!f.url) return;
+    const a=document.createElement("a");
+    a.href=f.url; a.target="_blank";
+    a.innerText=f.quality.toUpperCase()+" — Download";
+    formats.appendChild(a);
+  });
+
+  if(j.thumbnail){
+    document.getElementById("previewImg").src=j.thumbnail;
+    document.getElementById("previewTitle").innerText=j.title||"";
+    prev.style.display="block";
+  }
+}
+
+/* ============================================================
+   PARTICLE SYSTEM
+   ============================================================ */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let w,h,particles=[];
+function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; }
+addEventListener("resize",resize); resize();
+
+function create(){ particles=[];
+  for(let i=0;i<110;i++){
+    particles.push({
+      x:Math.random()*w,
+      y:Math.random()*h,
+      r:Math.random()*2+0.5,
+      dx:(Math.random()*0.6-0.3),
+      dy:(Math.random()*0.6-0.3),
+      a:Math.random()*0.9+0.1
+    });
+  }
+}
+create();
+
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  particles.forEach(p=>{
+    ctx.beginPath(); ctx.fillStyle=`rgba(255,255,255,${p.a})`;
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0||p.x>w) p.dx*=-1;
+    if(p.y<0||p.y>h) p.dy*=-1;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
